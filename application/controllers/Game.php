@@ -46,13 +46,16 @@ class Game extends CI_Controller {
 
 	public function AksiTambahGame() {
 		$nama = $this->input->post('nama');
+		$developer = $this->input->post('developer');
 		$genre = $this->input->post('genre');
 		$rating = $this->input->post('rating');
-		$gambar = '/assets/img/postingan-game/game_'.$nama.'.jpg';
 		$deskripsi = $this->input->post('content');
 		$id = $this->session->userdata('id_admin');
+		$foto = "game_".$dataLama->judul.".jpg";
+		$strFoto = str_replace(' ', '_', $foto);
+		$gambar = "assets/img/postingan-game/".$strFoto;
 
-		$config['file_name'] 			= 'game_'.$nama.'.jpg';
+		$config['file_name'] 			= $strFoto;
 		$config['upload_path']          = './assets/img/postingan-game/';
 		$config['allowed_types']        = 'jpg|png|jpeg';
 
@@ -68,6 +71,7 @@ class Game extends CI_Controller {
 		} else {
 			$data = array(
 				'judul' => $nama,
+				'developer' => $developer,
 				'genre' => $genre,
 				'deskripsi' => $deskripsi,
 				'rating' => $rating,
@@ -88,9 +92,11 @@ class Game extends CI_Controller {
 	public function AksiEditGame() {
 		date_default_timezone_set("Asia/Kuala_Lumpur");
 		$nama = $this->input->post('nama');
+		$developer = $this->input->post('developer');
 		$genre = $this->input->post('genre');
 		$rating = $this->input->post('rating');
-		$gambar = '/assets/img/postingan-game/game_'.$nama.'.jpg';
+		$strFoto = str_replace(' ', '_', $nama);
+		$gambar = "assets/img/postingan-game/".$strFoto;
 		$deskripsi = $this->input->post('content');
 		$id = $this->input->post('id');
 		
@@ -117,6 +123,7 @@ class Game extends CI_Controller {
 			} else {
 				$data = array(
 					'judul' => $nama,
+					'developer' => $developer,
 					'genre' => $genre,
 					'deskripsi' => $deskripsi,
 					'tanggal_edit' => date("Y-m-d h:i:sa"),
@@ -131,6 +138,7 @@ class Game extends CI_Controller {
 		} else {
 			$data = array(
 				'judul' => $nama,
+				'developer' => $developer,
 				'genre' => $genre,
 				'deskripsi' => $deskripsi,
 				'tanggal_edit' => date("Y-m-d h:i:sa"),

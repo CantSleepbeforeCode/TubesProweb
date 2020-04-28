@@ -31,6 +31,13 @@ class Landing extends CI_Controller {
 		$this->load->view('templates/header.php', $dataDoc);
 		$this->load->view('esport/landing');
 		$this->load->view('templates/footer.php');
+	}
 
+	public function detailGame($id) {
+		$dataDoc['judul'] = 'Detail Game';
+		$dataDoc['dataGame'] = $this->GameModel->getByIdGame($id);
+		$this->load->view('templates/header.php', $dataDoc);
+		$this->load->view('esport/detail-game', $dataDoc);
+		$this->load->view('templates/footer.php');
 	}
 }

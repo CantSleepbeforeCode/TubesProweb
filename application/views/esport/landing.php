@@ -71,7 +71,9 @@
                   <div class="carousel-item">
                   <?php } ?>
                     <div class="card">
-                      <img class="card-img-top" src="<?= base_url().$data->foto; ?>" alt="Card image cap">
+                      <a href="<?= base_url("landing/detailGame/".$data->id_game) ?>">
+                        <img class="card-img-top" src="<?= base_url().$data->foto; ?>" alt="Card image cap">
+                      </a>
                       <div class="card-body">
                         <p class="font-weight-normal text-break" style="margin-bottom:0;"><?= $data->judul ?></p>
                         <p class="text-break" style="font-size:0.8rem; margin:0;"><?= $data->developer ?></p>
@@ -122,7 +124,7 @@
                   } ?>
                         <div class="col-md-3">
                           <div class="card">
-                            <a href="<?= base_url("detail-game/".$data->id_game) ?>">
+                            <a href="<?= base_url("landing/detailGame/".$data->id_game) ?>">
                               <img class="card-img-top" src="<?= base_url().$data->foto; ?>" alt="Card image cap">
                             </a>
                             <div class="card-body">

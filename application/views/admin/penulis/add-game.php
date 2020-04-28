@@ -120,6 +120,14 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-2 col-md-2">
+                      <label class="col-form-label">Developer</label>
+                      </div>
+                      <div class="col-sm-8 col-md-8">
+                        <input name="developer" type="text" class="form-control" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-2 col-md-2">
                         <label class="col-form-label">Genre</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
