@@ -15,7 +15,7 @@
           <li class="nav-item text-center ">
             <h5 class="font-weight-bold text-muted">GAME</h5>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="<?php echo base_url('admin/landing')?>">
               <i class="material-icons">dashboard</i>
               <p>Postingan Anda</p>
@@ -39,8 +39,8 @@
               <p>Postingan Anda</p>
             </a>
           </li>
-          <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('admin/add-news')?>">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">create</i>
               <p>Buat Postingan</p>
             </a>
@@ -85,18 +85,37 @@
             <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title"> Edit Postingan Game</h4>
-                  <p class="card-category">Ubah Game menarik di Inesa.</p>
+                  <h4 class="card-title"> Buat Postingan Game</h4>
+                  <p class="card-category">Tambahkan Game menarik di Inesa.</p>
                 </div>
                 <div class="card-body table-responsive">
-                  <form class="mb-5" action="<?php echo base_url('admin/landing/aksi-edit-game'); ?>" method="POST" enctype="multipart/form-data">
+                <?php if(isset($status)) { 
+                  if($status == "ok") { ?>
+                    <div class="alert alert-success">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                      </button>
+                      <span>
+                        <b><i class="material-icons">thumb_up_alt</i> Berhasil! </b><br> Postingan Berhasil Dibuat</span>
+                    </div>
+                  <?php } else if($status == "error") { ?>
+                    <div class="alert alert-danger">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                      </button>
+                      <span>
+                        <b> <i class="material-icons" style="color:white;">error_outline</i> Terjadi Kesalahan! </b><br> Terjadi Kesalahan saat mengupload gambar. Code Error: <?php echo $error ?></span>
+                    </div>
+                  <?php } ?>
+                <?php } ?>
+                  
+                  <form class="mb-5" action="<?php echo base_url('admin/landing/aksi-tambah-game'); ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
                       <div class="col-sm-2 col-md-2">
                       <label class="col-form-label">Nama</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                        <input name="nama" type="text" class="form-control" value="<?= $data->judul ?>" required>
-                        <input name="id" type="hidden" class="form-control" value="<?= $data->id_game ?>" required>
+                        <input name="nama" type="text" class="form-control" required>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -104,7 +123,7 @@
                       <label class="col-form-label">Developer</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                        <input name="developer" type="text" class="form-control" value="<?= $data->developer ?>" required>
+                        <input name="developer" type="text" class="form-control" required>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -112,7 +131,7 @@
                         <label class="col-form-label">Genre</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                        <input name="genre" type="text" class="form-control" value="<?= $data->genre ?>" required>
+                        <input name="genre" type="text" class="form-control" required>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -120,7 +139,7 @@
                         <label class="col-form-label">Rating</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                        <input name="rating" id="rating" type="range" class="form-control-range" value="<?= $data->genre ?>" min="0" max="5" step="0.5" data-toggle="tooltip" data-placement="top" title="0" onchange="tooltipRange();">
+                        <input name="rating" id="rating" type="range" class="form-control-range" value="0" min="0" max="5" step="0.5" data-toggle="tooltip" data-placement="top" title="0" onchange="tooltipRange();">
                         <small class="form-text text-muted">
                           Beri nilai dari 1 sampai 5.
                         </small>
@@ -133,7 +152,7 @@
                       <div class="col-sm-8 col-md-8">
                         <div class="input-group mb-3">
                           <div class="custom-file">
-                            <input name="gambar" type="file" id="gambar">
+                            <input name="gambar" type="file" id="gambar" required>
                             <label class="custom-file-label" for="gambar">Masukkan Foto Disini</label>
                           </div>
                         </div>
@@ -146,12 +165,12 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-12 col-md-12">
-                        <textarea name="content" id="content" class="mb-5"><?= $data->deskripsi ?></textarea>
+                        <textarea name="content" id="content" class="mb-5"></textarea>
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-12 col-md-12 text-center">
-                        <input type="submit" class="btn btn-success" value="Update Game">
+                        <input type="submit" class="btn btn-success" value="Posting Game">
                       </div>
                     </div>
                   </form>
@@ -161,10 +180,3 @@
           </div>
         </div>
       </div>
-      <script>
-        function tooltipRange() {
-          var tooltip = document.getElementById('rating');
-          var val = document.getElementById('rating').value;
-          tooltip.title = val;
-        }
-      </script>

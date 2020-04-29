@@ -1,4 +1,4 @@
-  <div class="wrapper ">
+<div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="<?php echo base_url('/assets/img/sidebar-2.jpg')?>">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -15,8 +15,8 @@
           <li class="nav-item text-center ">
             <h5 class="font-weight-bold text-muted">GAME</h5>
           </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="javascript:void(0)">
+          <li class="nav-item  ">
+            <a class="nav-link" href="<?php echo base_url('admin/landing')?>">
               <i class="material-icons">dashboard</i>
               <p>Postingan Anda</p>
             </a>
@@ -33,8 +33,8 @@
           <li class="nav-item text-center ">
             <h5 class="font-weight-bold text-muted">GAME NEWS</h5>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('admin/news')?>">
+          <li class="nav-item active ">
+            <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Postingan Anda</p>
             </a>
