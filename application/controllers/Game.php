@@ -51,7 +51,7 @@ class Game extends CI_Controller {
 		$rating = $this->input->post('rating');
 		$deskripsi = $this->input->post('content');
 		$id = $this->session->userdata('id_admin');
-		$foto = "game_".$dataLama->judul.".jpg";
+		$foto = "game_".$nama.".jpg";
 		$strFoto = str_replace(' ', '_', $foto);
 		$gambar = "assets/img/postingan-game/".$strFoto;
 
@@ -142,13 +142,12 @@ class Game extends CI_Controller {
 				'genre' => $genre,
 				'deskripsi' => $deskripsi,
 				'tanggal_edit' => date("Y-m-d h:i:sa"),
-				'rating' => $rating,
-				'foto' => $gambar,
+				'rating' => $rating
 			);
 			$oldfile = str_replace(' ', '_', "./assets/img/postingan-game/game_".$dataLama->judul.".jpg");
 			$newfile = str_replace(' ', '_', "./assets/img/postingan-game/game_".$nama.".jpg");
 			rename($oldfile, $newfile);
-			$this->GameModel->editPostinganGambarGame($data, 'game', $id);
+			$this->GameModel->editPostinganGame($data, 'game', $id);
 			$this->session->set_flashdata('flash', 'diedit');
 			redirect('admin/landing');
 		}		

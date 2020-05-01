@@ -85,8 +85,8 @@
             <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title"> Buat Postingan Game</h4>
-                  <p class="card-category">Tambahkan Game menarik di Inesa.</p>
+                  <h4 class="card-title"> Buat Postingan Berita Game</h4>
+                  <p class="card-category">Tambahkan Berita Game menarik di Inesa.</p>
                 </div>
                 <div class="card-body table-responsive">
                 <?php if(isset($status)) { 
@@ -109,7 +109,7 @@
                   <?php } ?>
                 <?php } ?>
                   
-                  <form class="mb-5" action="<?php echo base_url('admin/landing/aksi-tambah-game'); ?>" method="POST" enctype="multipart/form-data">
+                  <form class="mb-5" action="<?php echo base_url('admin/landing/aksi-tambah-game-news'); ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
                       <div class="col-sm-2 col-md-2">
                       <label class="col-form-label">Nama</label>
@@ -120,29 +120,14 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-2 col-md-2">
-                      <label class="col-form-label">Developer</label>
+                      <label class="col-form-label">Game</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                        <input name="developer" type="text" class="form-control" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-2 col-md-2">
-                        <label class="col-form-label">Genre</label>
-                      </div>
-                      <div class="col-sm-8 col-md-8">
-                        <input name="genre" type="text" class="form-control" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-2 col-md-2">
-                        <label class="col-form-label">Rating</label>
-                      </div>
-                      <div class="col-sm-8 col-md-8">
-                        <input name="rating" id="rating" type="range" class="form-control-range" value="0" min="0" max="5" step="0.5" data-toggle="tooltip" data-placement="top" title="0" onchange="tooltipRange();">
-                        <small class="form-text text-muted">
-                          Beri nilai dari 1 sampai 5.
-                        </small>
+                      <select name="game" class="form-control">
+                      <?php foreach($games as $game) { ?>
+                        <option class="custom-option" value="<?= $game->id_game ?>"><?= $game->judul ?></option>
+                      <?php } ?>
+                      </select>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -170,7 +155,7 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-sm-12 col-md-12 text-center">
-                        <input type="submit" class="btn btn-success" value="Posting Game">
+                        <input type="submit" class="btn btn-success" value="Posting Berita Game">
                       </div>
                     </div>
                   </form>

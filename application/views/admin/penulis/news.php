@@ -111,14 +111,15 @@
             <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Postingan Game</h4>
-                  <p class="card-category">Berikut Postingan Game yang terdapat pada Inesa, Gunakanlah dengan Bijak.</p>
+                  <h4 class="card-title">Postingan Berita Game</h4>
+                  <p class="card-category">Berikut Postingan Berita Game yang terdapat pada Inesa, Gunakanlah dengan Bijak.</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>#</th>
                       <th>Judul</th>
+                      <th>Game</th>
                       <th>Author</th>
                       <th>Tanggal Upload</th>
                       <th>Tanggal Edit</th>
@@ -127,11 +128,12 @@
                     <tbody>
                     <?php 
                       $no = 1;
-                      foreach($game as $g) {
+                      foreach($game_news as $g) {
                     ?>
                       <tr>
                         <td><?php echo $no++ ?></td>
                         <td><?php echo $g->judul ?></td>
+                        <td><?php echo $g->nama_game ?></td>
                         <td><?php echo $g->author ?></td>
                         <td><?php echo $g->tanggal_masuk ?></td>
                         <?php 
@@ -141,10 +143,10 @@
                         <td><?php echo $g->tanggal_edit ?></td>
                           <?php } ?>
                         <td>
-                          <a href="<?php echo base_url('game/landing/lihat-data-game/'.$g->id_game)?>"><span class="badge badge-primary">Lihat</span><br></a>
+                          <a href="<?php echo base_url('game/landing/lihat-berita-game/'.$g->id_game_news)?>"><span class="badge badge-primary">Lihat</span><br></a>
                           <?php if($g->id_admin == $id_admin) { ?>
-                          <a href="<?php echo base_url();?>game/ubahGame/<?= $g->id_game ?>"><span class="badge badge-warning">Ubah</span><br></a>
-                          <a href="#" onclick="popUpAlert('<?php echo base_url();?>game/hapusGame/<?= $g->id_game ?>');"><span class="badge badge-danger">Hapus</span></a>
+                          <a href="<?php echo base_url();?>news/ubahBeritaGame/<?= $g->id_game_news ?>"><span class="badge badge-warning">Ubah</span><br></a>
+                          <a href="#" onclick="popUpAlert('<?php echo base_url();?>news/hapusBeritaGame/<?= $g->id_game_news ?>');"><span class="badge badge-danger">Hapus</span></a>
                           <?php } ?> 
                         </td>
                       </tr>

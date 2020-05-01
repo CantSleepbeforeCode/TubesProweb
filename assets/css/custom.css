@@ -147,3 +147,8 @@ html {
     transform: translateZ(0) rotate(135deg);
     right: -10px;
   }
+
+  .custom-option {
+    color: black;
+    padding: 8px 16px;
+  }

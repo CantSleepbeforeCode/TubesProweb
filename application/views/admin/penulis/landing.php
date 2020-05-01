@@ -141,7 +141,7 @@
                         <td><?php echo $g->tanggal_edit ?></td>
                           <?php } ?>
                         <td>
-                          <a href="<?php echo base_url('game/landing/lihat-data-game/'.$g->id_game)?>"><span class="badge badge-primary">Lihat</span><br></a>
+                          <a href="<?php echo base_url('landing/detailGame/'.$g->id_game)?>" target="_blank"><span class="badge badge-primary">Lihat</span><br></a>
                           <?php if($g->id_admin == $id_admin) { ?>
                           <a href="<?php echo base_url();?>game/ubahGame/<?= $g->id_game ?>"><span class="badge badge-warning">Ubah</span><br></a>
                           <a href="#" onclick="popUpAlert('<?php echo base_url();?>game/hapusGame/<?= $g->id_game ?>');"><span class="badge badge-danger">Hapus</span></a>

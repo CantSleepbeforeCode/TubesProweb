@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.0')?>" rel="stylesheet" />
+  <link href="<?php echo base_url('assets/css/custom.css')?>" rel="stylesheet" />
 
 </head>
 
