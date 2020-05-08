@@ -51,7 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'landing';
 $route['admin'] = 'login';
-$route['admin/landing'] = 'game';
+$route['admin/game'] = 'game';
+$route['admin/lomba'] = 'lomba';
 $route['admin/add-game'] = 'game/addGame';
 $route['admin/news'] = 'news';
 $route['admin/add-news'] = 'news/addNews';

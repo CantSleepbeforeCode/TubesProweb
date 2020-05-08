@@ -54,7 +54,11 @@ class Login extends CI_Controller {
 			);
 
 			$this->session->set_userdata($data_session);
-			redirect(base_url("admin/landing"));
+			if($data->hak_akses == "penulis") {
+				redirect(base_url("admin/game"));
+			} else if($data->hak_akses == "panitia_lomba") {
+				redirect(base_url("admin/lomba"));
+			}
 		} else {
 			$this->session->set_flashdata('gagal','true');
 			redirect(base_url("admin/"));

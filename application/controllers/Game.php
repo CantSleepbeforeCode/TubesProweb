@@ -96,7 +96,7 @@ class Game extends CI_Controller {
 		$genre = $this->input->post('genre');
 		$rating = $this->input->post('rating');
 		$strFoto = str_replace(' ', '_', $nama);
-		$gambar = "assets/img/postingan-game/".$strFoto;
+		$gambar = "assets/img/postingan-game/game_".$strFoto.".jpg";
 		$deskripsi = $this->input->post('content');
 		$id = $this->input->post('id');
 		

@@ -16,7 +16,7 @@
             <h5 class="font-weight-bold text-muted">GAME</h5>
           </li>
           <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('admin/landing')?>">
+            <a class="nav-link" href="<?php echo base_url('admin/game')?>">
               <i class="material-icons">dashboard</i>
               <p>Postingan Anda</p>
             </a>

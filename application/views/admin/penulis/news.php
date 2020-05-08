@@ -16,7 +16,7 @@
             <h5 class="font-weight-bold text-muted">GAME</h5>
           </li>
           <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('admin/landing')?>">
+            <a class="nav-link" href="<?php echo base_url('admin/game')?>">
               <i class="material-icons">dashboard</i>
               <p>Postingan Anda</p>
             </a>
@@ -143,7 +143,7 @@
                         <td><?php echo $g->tanggal_edit ?></td>
                           <?php } ?>
                         <td>
-                          <a href="<?php echo base_url('game/landing/lihat-berita-game/'.$g->id_game_news)?>"><span class="badge badge-primary">Lihat</span><br></a>
+                          <a href="<?= base_url("landing/detailBeritaGame/".$g->id_game_news); ?>" target="_blank"><span class="badge badge-primary">Lihat</span><br></a>
                           <?php if($g->id_admin == $id_admin) { ?>
                           <a href="<?php echo base_url();?>news/ubahBeritaGame/<?= $g->id_game_news ?>"><span class="badge badge-warning">Ubah</span><br></a>
                           <a href="#" onclick="popUpAlert('<?php echo base_url();?>news/hapusBeritaGame/<?= $g->id_game_news ?>');"><span class="badge badge-danger">Hapus</span></a>

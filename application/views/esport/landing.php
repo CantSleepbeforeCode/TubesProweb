@@ -18,7 +18,7 @@
             <a href="#news" class="button btn-decoration">GAME NEWS</a>
           </div>
           <div class="col" style="text-align: left;">
-            <a href="#" class="button btn-decoration">LOMBA</a>
+            <a href="#turnamen" class="button btn-decoration">TURNAMEN</a>
           </div>
         </div>
         <div class="row">
@@ -209,9 +209,15 @@
                     </div>
                     <?php $no = 0;
                   }
+                  $no++;
                   ?>
-                  </div>
+                <?php }
+                if($no > 0)  { ?>
+                      </div>
+                    </div>
                 <?php } ?>
+                
+                </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
@@ -231,18 +237,81 @@
   </section>
 
   <section id="news">
-    <div class="container">
+    <div class="container mt-5">
       <h3 class="text-center">Mading Games</h3>
       <hr class="clearfix">
       <div class="row">
-        <div class="col"></div>
+        <div class="col-md-8 offset-md-2">
+          <div id="base-news">
+          <?php foreach($dataGameNews as $data) { ?>
+            <div class="content">
+              <a style="text-decoration: none; color: black;" href="<?= base_url("landing/detailBeritaGame/".$data->id_game_news); ?>">
+                <div class="row mb-5">
+                  <div class="col">
+                    <img src="<?= base_url($data->foto); ?>" class="img-fluid">
+                  </div>
+                  <div class="col"> 
+                    <div class="align-middle">
+                      <h4 class="font-weight-bold"><?= $data->judul ?></h4>
+                      <hr>
+                      <p class="mb-1 font-weight-normal"><?= $data->nama_game ?></p>
+                      <div class="deskripsi mt-0 font-weight-light">
+                        <p><?= $data->deskripsi ?></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              
+            </div>
+          <?php } ?>
+          </div>
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <button id="load_data" class="btn btn-dark btn-block mt-3" data-val="0">Load More</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="lomba">
-    <div class="container">
+  <section id="turnamen">
+    <div class="container mt-5">
       <h3 class="text-center">Turnamen Inesia</h3>
       <hr class="clearfix">
+      <div class="row">
+      <?php foreach($dataTurnamen as $turnamen) { ?>
+        <div class="col mb-5 pl-2 pr-2">
+          <div class="card-turnamen" style="width: 20rem; border-style:solid;">
+            <div class="card-img-top" style="background: url('<?= base_url($turnamen->foto_sampul); ?>') center / cover;"></div>
+            <div class="card-body">
+              <a href="<?= base_url("landing/detailTurnamen/$turnamen->id_turnamen") ?>" style="color: black; text-decoration: none;">
+                <h4 class="card-title"><?= $turnamen->judul ?></h4>
+              </a>
+              <p class="card-text font-weight-light">Oleh: <?= $turnamen->penyelenggara ?></p>
+              <?php if($turnamen->platform == "PC") { ?>
+              <p class="font-weight-light">Platform Game : <button class="btn btn-outline-dark"><i class="fas fa-desktop"></i> <?= $turnamen->platform ?></button></p>
+              <?php } else { ?>
+              <p class="font-weight-light">Platform Game : <button class="btn btn-outline-dark"><i class="fas fa-tablet"></i> <?= $turnamen->platform ?></button></p>
+              <?php } ?>
+            </div>
+            <div class="card-footer bg-transparent">
+              <div class="row">
+                <div class="col">
+                  <small>Total Peserta</small>
+                  <p><span class="font-weight-bold"><?= $turnamen->jumlah_pendaftar ?></span>/<?= $turnamen->jumlah_tim ?> tim</p>
+                </div>
+                <div class="col">
+                  <small>Deadline Pendaftaran</small>
+                  <?php $date = date_create($turnamen->deadline_pendaftaran); ?>
+                  <p><span class="font-weight-bold"><?= date_format($date, "d");?></span> <?= date_format($date, "M"); ?></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+      </div>
     </div>
   </section>

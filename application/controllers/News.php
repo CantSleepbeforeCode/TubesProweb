@@ -164,4 +164,29 @@ class News extends CI_Controller {
 		$this->session->set_flashdata('flash', 'dihapus');
 		redirect('admin/news');
 	}
+
+	public function getNews() {
+		header("Content-Type: application/json");
+		$data = json_decode(stripslashes(file_get_contents("php://input")));
+
+		$page = $data->page;
+		$news = $this->GameModel->getNews($page);
+		foreach($news as $new) {
+			echo '
+			<div class="row">
+            <div class="col">
+              <img src="'.$new->foto.'" class="img-fluid">
+            </div>
+            <div class="col"> 
+              <div class="align-middle">
+                <h4>'.$new->judul.'</h4>
+                <hr>
+                <p>'.$new->nama_game.'</p>
+              </div>
+            </div>
+          </div>
+			';
+		}
+		exit;
+	}
 }
