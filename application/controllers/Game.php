@@ -133,7 +133,7 @@ class Game extends CI_Controller {
 
 				$this->GameModel->editPostinganGambarGame($data, 'game', $id);
 				$this->session->set_flashdata('flash', 'diedit');
-				redirect('admin/landing');
+				redirect('admin/game');
 			}
 		} else {
 			$data = array(
@@ -149,7 +149,7 @@ class Game extends CI_Controller {
 			rename($oldfile, $newfile);
 			$this->GameModel->editPostinganGame($data, 'game', $id);
 			$this->session->set_flashdata('flash', 'diedit');
-			redirect('admin/landing');
+			redirect('admin/game');
 		}		
 	}
 
@@ -162,7 +162,7 @@ class Game extends CI_Controller {
 
 		$this->GameModel->hapusDataGame($id);
 		$this->session->set_flashdata('flash', 'dihapus');
-		redirect('admin/landing');
+		redirect('admin/game');
 	}
 
 	public function ubahGame($id) {

@@ -15,8 +15,8 @@
           <li class="nav-item text-center ">
             <h5 class="font-weight-bold text-muted">TURNAMEN</h5>
           </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="javascript:void(0)">
+          <li class="nav-item  ">
+            <a class="nav-link" href="<?= base_url(); ?>admin/turnamen">
               <i class="material-icons">dashboard</i>
               <p>Lihat Turnamen</p>
             </a>
@@ -33,8 +33,8 @@
           <li class="nav-item text-center ">
             <h5 class="font-weight-bold text-muted">TIM</h5>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?= base_url(); ?>admin/turnamen/verifikasi-tim">
+          <li class="nav-item active ">
+            <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Verifikasi Tim</p>
             </a>
@@ -81,18 +81,7 @@
           <div class="row">
             <div class="col-lg-12 col md 12">
               <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Data Turnamen Berhasil diperbarui!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            </div>
-          </div>
-            <?php } else if($this->session->flashdata('flash') == "gagal") { ?>
-            <div class="row">
-            <div class="col-lg-12 col md 12">
-              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Gagal Memperbarui Data.
+                Tim berhasil diverifikasi!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -104,44 +93,38 @@
           <div class="row">
               <div class="col-lg-12 col-md-12">
                 <div class="card">
-                  <div class="card-header card-header-primary">
-                    <h4 class="card-title">Turnamen Inesa</h4>
-                    <p class="card-category">Berikut Turnamen yang terdapat pada Inesa, Gunakanlah dengan Bijak.</p>
+                  <div class="card-header card-header-success">
+                    <h4 class="card-title">Verifikasi Tim</h4>
+                    <p class="card-category">Berikut Tim yang mendaftar pada Turnamen di Inesa, Gunakanlah dengan Bijak.</p>
                   </div>
                   <div class="card-body table-responsive">
                     <table class="table table-hover">
                       <thead class="text-warning">
                         <th>#</th>
-                        <th>Judul</th>
-                        <th>Penyelenggara</th>
-                        <th>Tim Pendaftar</th>
-                        <th>Deadline Pendaftaran</th>
-                        <th>Tanggal Pelaksanaan</th>
-                        <th>PJ</th>
+                        <th>Nama Tim</th>
+                        <th>Ketua Tim</th>
+                        <th>Turnamen</th>
+                        <th>Nomor Handphone</th>
+                        <th>Email</th>
                         <th>Aksi</th>
                       </thead>
                       <tbody>
                       <?php 
                         $no = 1;
-                        foreach($turnamen as $t) {
-                          $tgl_deadline = date_create($t->deadline_pendaftaran);
-                          $tgl_mulai = date_create($t->tanggal_pelaksanaan);
-                          $tgl_berakhir = date_create($t->tanggal_berakhir);
-                      ?>
+                        foreach($tim as $t) { ?>
                         <tr>
                           <td><?php echo $no++ ?></td>
+                          <td><?php echo $t->nama_tim ?></td>
+                          <td><?php echo $t->nama_anggota_1 ?></td>
                           <td><?php echo $t->judul ?></td>
-                          <td><?php echo $t->penyelenggara ?></td>
-                          <td><?= $t->jumlah_pendaftar."/".$t->jumlah_tim." Tim" ?></td>
-                          <td><?= date_format($tgl_deadline, "d M")?></td>
-                          <td><?= date_format($tgl_mulai, "d M")." / ".date_format($tgl_berakhir, "d M")?></td>
-                          <td><?= $t->username ?></td>
-                          <td>
-                            <a href="<?php echo base_url('landing/detailTurnamen/'.$t->id_turnamen)?>" target="_blank"><span class="badge badge-primary">Lihat</span><br></a>
-                            <?php if($t->id_admin == $id_admin) { ?>
-                            <a href="<?php echo base_url();?>turnamen/ubahTurnamen/<?= $t->id_turnamen ?>"><span class="badge badge-warning">Ubah</span><br></a>
-                            <?php } ?> 
-                          </td>
+                          <td><?php echo $t->nohp ?></td>
+                          <td><?php echo $t->email ?></td>
+                          <?php if($t->id_admin == $id_admin) { ?>
+                          <td><a href="<?php echo base_url();?>turnamen/verifikasiDataTim/<?= $t->id_tim ?>"><span class="badge badge-warning">Verifikasi</span></a></td>
+                          <?php } else { ?>
+                          <td>-</td>
+                          <?php } ?>
+                          
                         </tr>
                       <?php
                         }

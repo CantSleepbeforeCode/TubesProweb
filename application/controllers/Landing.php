@@ -109,8 +109,7 @@ class Landing extends CI_Controller {
 
 			$dataDoc['berhasil'] = "ok";
 			$dataDoc['judul'] = 'Detail Turnamen';
-			// $dataDoc['dataTurnamen'] = $this->TurnamenModel->getByIdTurnamen($idTurnamen);
-			$dataDoc['dataTurnamen'] = $this->TurnamenModel->getByIdTurnamen(1);
+			$dataDoc['dataTurnamen'] = $this->TurnamenModel->getByIdTurnamen($idTurnamen);
 			$this->load->view('templates/header.php', $dataDoc);
 			$this->load->view('esport/pembayaran', $dataDoc);
 			$this->load->view('templates/footer.php');

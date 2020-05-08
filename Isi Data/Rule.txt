@@ -1,8 +1,0 @@
-genre: kalo lebih dari 1, pisahkan dengan "," tanpa spasi. sesuai contoh.
-tanggal masuk dibiarkan current timestamp
-tanggal edit dibiarkan kosong
-rating nilai maksimal 5.
-foto sesuaikan template foldernya, "/assets/img/postingan-game/". kemudian nama fotonya. setelah itu fotonya dikirim ke aku biar dimasukkan ke projectnya.
-id admin, pilih authornya siapa. authornya disini samslb, mzulfikar dan yogspria100%. selain itu jangan dipilih.
-
-Terimakasih Banyak.

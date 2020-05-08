@@ -22,7 +22,7 @@
                 $dateEnded = date_create($dataTurnamen->tanggal_berakhir);
                 ?>
                     <small>Tanggal Pelaksanaan</small>
-                    <h2 class="mb-2"><?= date_format($dateStarted, "d/m")."-".date_format($dateEnded, "d/m") ?></h2>
+                    <h2 class="mb-2"><?= date_format($dateStarted, "d M")." - ".date_format($dateEnded, "d M") ?></h2>
                     <small>Tim Bermain</small>
                     <h2 class="mb-2"><?= $dataTurnamen->jumlah_pendaftar."/"."$dataTurnamen->jumlah_tim" ?></h2>
                 </div>

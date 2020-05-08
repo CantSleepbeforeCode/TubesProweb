@@ -124,7 +124,7 @@
                       <label class="col-form-label">Game</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                      <select name="game" class="form-control">
+                      <select name="game" class="custom-select">
                       <?php foreach($games as $game) { 
                         if($data->id_game == $game->id_game) { ?>
                         <option class="custom-option" value="<?= $game->id_game ?>" selected><?= $game->judul ?></option>

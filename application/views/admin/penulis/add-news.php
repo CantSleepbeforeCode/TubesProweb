@@ -123,7 +123,7 @@
                       <label class="col-form-label">Game</label>
                       </div>
                       <div class="col-sm-8 col-md-8">
-                      <select name="game" class="form-control">
+                      <select name="game" class="custom-select">
                       <?php foreach($games as $game) { ?>
                         <option class="custom-option" value="<?= $game->id_game ?>"><?= $game->judul ?></option>
                       <?php } ?>

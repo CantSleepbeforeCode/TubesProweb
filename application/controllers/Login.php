@@ -57,7 +57,7 @@ class Login extends CI_Controller {
 			if($data->hak_akses == "penulis") {
 				redirect(base_url("admin/game"));
 			} else if($data->hak_akses == "panitia_lomba") {
-				redirect(base_url("admin/lomba"));
+				redirect(base_url("admin/turnamen"));
 			}
 		} else {
 			$this->session->set_flashdata('gagal','true');
