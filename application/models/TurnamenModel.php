@@ -11,6 +11,18 @@ class TurnamenModel extends CI_Model {
         return $this->db->get('view_turnamen')->row();
     }
 
+    public function getByIdTim($id) {
+        $this->db->where('id_turnamen', $id);
+        $this->db->where('status', 'lunas');
+        return $this->db->get('view_tim')->result();
+    }
+
+    public function getCountByIdTim($id) {
+        $this->db->where('id_turnamen', $id);
+        $this->db->where('status', 'lunas');
+        return $this->db->get('view_tim');
+    }
+
     public function tambahTim($data,$table) {
         $this->db->insert($table,$data);
     }

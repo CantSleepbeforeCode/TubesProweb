@@ -55,6 +55,8 @@ class Landing extends CI_Controller {
 	public function detailTurnamen($id) {
         $dataDoc['judul'] = 'Detail Turnamen';
 		$dataDoc['dataTurnamen'] = $this->TurnamenModel->getByIdTurnamen($id);
+		$dataDoc['dataTim'] = $this->TurnamenModel->getByIdTim($id);
+		$dataDoc['countTim'] = $this->TurnamenModel->getCountByIdTim($id)->num_rows();
 		$this->load->view('templates/header.php', $dataDoc);
 		$this->load->view('esport/detail-turnamen', $dataDoc);
 		$this->load->view('templates/footer.php');
