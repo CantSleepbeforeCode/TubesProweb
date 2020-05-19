@@ -306,7 +306,7 @@ CREATE TABLE `view_turnamen` (
 --
 DROP TABLE IF EXISTS `view_postingan_game`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_postingan_game`  AS  select `game`.`id_game` AS `id_game`,`game`.`judul` AS `judul`,`game`.`developer` AS `developer`,`game`.`genre` AS `genre`,`game`.`deskripsi` AS `deskripsi`,`game`.`tanggal_masuk` AS `tanggal_masuk`,`game`.`tanggal_edit` AS `tanggal_edit`,`game`.`rating` AS `rating`,`game`.`foto` AS `foto`,`game`.`id_admin` AS `id_admin`,`admin`.`username` AS `author` from (`game` join `admin`) where `game`.`id_admin` = `admin`.`id_admin` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`id13628137_inesa`@`localhost` SQL SECURITY DEFINER VIEW `view_postingan_game`  AS  select `game`.`id_game` AS `id_game`,`game`.`judul` AS `judul`,`game`.`developer` AS `developer`,`game`.`genre` AS `genre`,`game`.`deskripsi` AS `deskripsi`,`game`.`tanggal_masuk` AS `tanggal_masuk`,`game`.`tanggal_edit` AS `tanggal_edit`,`game`.`rating` AS `rating`,`game`.`foto` AS `foto`,`game`.`id_admin` AS `id_admin`,`admin`.`username` AS `author` from (`game` join `admin`) where `game`.`id_admin` = `admin`.`id_admin` ;
 
 -- --------------------------------------------------------
 
@@ -315,7 +315,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_postingan_game_news`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_postingan_game_news`  AS  select `game_news`.`id_game_news` AS `id_game_news`,`game_news`.`judul` AS `judul`,`game_news`.`deskripsi` AS `deskripsi`,`game_news`.`tanggal_masuk` AS `tanggal_masuk`,`game_news`.`tanggal_edit` AS `tanggal_edit`,`game_news`.`foto` AS `foto`,`game_news`.`id_game` AS `id_game`,`game_news`.`id_admin` AS `id_admin`,`admin`.`username` AS `author`,`game`.`judul` AS `nama_game` from ((`game_news` join `admin`) join `game`) where `game_news`.`id_admin` = `admin`.`id_admin` and `game_news`.`id_game` = `game`.`id_game` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`id13628137_inesa`@`localhost` SQL SECURITY DEFINER VIEW `view_postingan_game_news`  AS  select `game_news`.`id_game_news` AS `id_game_news`,`game_news`.`judul` AS `judul`,`game_news`.`deskripsi` AS `deskripsi`,`game_news`.`tanggal_masuk` AS `tanggal_masuk`,`game_news`.`tanggal_edit` AS `tanggal_edit`,`game_news`.`foto` AS `foto`,`game_news`.`id_game` AS `id_game`,`game_news`.`id_admin` AS `id_admin`,`admin`.`username` AS `author`,`game`.`judul` AS `nama_game` from ((`game_news` join `admin`) join `game`) where `game_news`.`id_admin` = `admin`.`id_admin` and `game_news`.`id_game` = `game`.`id_game` ;
 
 -- --------------------------------------------------------
 
@@ -324,7 +324,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_tim`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_tim`  AS  select `tim`.`id_tim` AS `id_tim`,`tim`.`nama_tim` AS `nama_tim`,`tim`.`nama_anggota_1` AS `nama_anggota_1`,`tim`.`nama_anggota_2` AS `nama_anggota_2`,`tim`.`nama_anggota_3` AS `nama_anggota_3`,`tim`.`nama_anggota_4` AS `nama_anggota_4`,`tim`.`nama_anggota_5` AS `nama_anggota_5`,`tim`.`nohp` AS `nohp`,`tim`.`email` AS `email`,`tim`.`status` AS `status`,`tim`.`logo_tim` AS `logo_tim`,`tim`.`id_turnamen` AS `id_turnamen`,`turnamen`.`judul` AS `judul`,`turnamen`.`penyelenggara` AS `penyelenggara`,`admin`.`id_admin` AS `id_admin` from ((`tim` join `turnamen`) join `admin`) where `tim`.`id_turnamen` = `turnamen`.`id_turnamen` and `turnamen`.`id_admin` = `admin`.`id_admin` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`id13628137_inesa`@`localhost` SQL SECURITY DEFINER VIEW `view_tim`  AS  select `tim`.`id_tim` AS `id_tim`,`tim`.`nama_tim` AS `nama_tim`,`tim`.`nama_anggota_1` AS `nama_anggota_1`,`tim`.`nama_anggota_2` AS `nama_anggota_2`,`tim`.`nama_anggota_3` AS `nama_anggota_3`,`tim`.`nama_anggota_4` AS `nama_anggota_4`,`tim`.`nama_anggota_5` AS `nama_anggota_5`,`tim`.`nohp` AS `nohp`,`tim`.`email` AS `email`,`tim`.`status` AS `status`,`tim`.`logo_tim` AS `logo_tim`,`tim`.`id_turnamen` AS `id_turnamen`,`turnamen`.`judul` AS `judul`,`turnamen`.`penyelenggara` AS `penyelenggara`,`admin`.`id_admin` AS `id_admin` from ((`tim` join `turnamen`) join `admin`) where `tim`.`id_turnamen` = `turnamen`.`id_turnamen` and `turnamen`.`id_admin` = `admin`.`id_admin` ;
 
 -- --------------------------------------------------------
 
@@ -333,7 +333,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_turnamen`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_turnamen`  AS  select `turnamen`.`id_turnamen` AS `id_turnamen`,`turnamen`.`judul` AS `judul`,`turnamen`.`penyelenggara` AS `penyelenggara`,`turnamen`.`platform` AS `platform`,`turnamen`.`jumlah_tim` AS `jumlah_tim`,`turnamen`.`jumlah_anggota` AS `jumlah_anggota`,`turnamen`.`deskripsi_lomba` AS `deskripsi_lomba`,`turnamen`.`deadline_pendaftaran` AS `deadline_pendaftaran`,`turnamen`.`tanggal_pelaksanaan` AS `tanggal_pelaksanaan`,`turnamen`.`tanggal_berakhir` AS `tanggal_berakhir`,`turnamen`.`jam_mulai` AS `jam_mulai`,`turnamen`.`foto_sampul` AS `foto_sampul`,`turnamen`.`id_admin` AS `id_admin`,`admin`.`username` AS `username`,`admin`.`nohp` AS `nohp`,`admin`.`email` AS `email`,`admin`.`nama` AS `nama`,`admin`.`norek` AS `norek`,(select count(0) from `tim` where `tim`.`id_turnamen` = `turnamen`.`id_turnamen` and `tim`.`status` = 'lunas') AS `jumlah_pendaftar` from (`turnamen` join `admin`) where `turnamen`.`id_admin` = `admin`.`id_admin` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`id13628137_inesa`@`localhost` SQL SECURITY DEFINER VIEW `view_turnamen`  AS  select `turnamen`.`id_turnamen` AS `id_turnamen`,`turnamen`.`judul` AS `judul`,`turnamen`.`penyelenggara` AS `penyelenggara`,`turnamen`.`platform` AS `platform`,`turnamen`.`jumlah_tim` AS `jumlah_tim`,`turnamen`.`jumlah_anggota` AS `jumlah_anggota`,`turnamen`.`deskripsi_lomba` AS `deskripsi_lomba`,`turnamen`.`deadline_pendaftaran` AS `deadline_pendaftaran`,`turnamen`.`tanggal_pelaksanaan` AS `tanggal_pelaksanaan`,`turnamen`.`tanggal_berakhir` AS `tanggal_berakhir`,`turnamen`.`jam_mulai` AS `jam_mulai`,`turnamen`.`foto_sampul` AS `foto_sampul`,`turnamen`.`id_admin` AS `id_admin`,`admin`.`username` AS `username`,`admin`.`nohp` AS `nohp`,`admin`.`email` AS `email`,`admin`.`nama` AS `nama`,`admin`.`norek` AS `norek`,(select count(0) from `tim` where `tim`.`id_turnamen` = `turnamen`.`id_turnamen` and `tim`.`status` = 'lunas') AS `jumlah_pendaftar` from (`turnamen` join `admin`) where `turnamen`.`id_admin` = `admin`.`id_admin` ;
 
 --
 -- Indexes for dumped tables

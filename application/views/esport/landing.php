@@ -112,111 +112,109 @@
             <div class="col">
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                <?php foreach($dataRating as $data) {
-                  if($no == 0) {
-                    if($isFirst) { ?>
-                    <div class="carousel-item active">
-                      <div class="row">
-                    <?php } else { ?>
-                    <div class="carousel-item">
-                      <div class="row">
-                    <?php }
-                  } ?>
-                        <div class="col-md-3">
-                          <div class="card">
-                            <a href="<?= base_url("landing/detailGame/".$data->id_game) ?>">
-                              <img class="card-img-top" src="<?= base_url().$data->foto; ?>" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                              <p class="font-weight-normal text-break" style="margin-bottom:0;"><?= $data->judul ?></p>
-                              <p class="font-weight-light text-muted text-break" style="font-size:0.8rem; margin:0;"><?= $data->developer ?></p>
-                              <div class="font-weight-light text-muted text-break deskripsi" style="font-size:0.8rem; margin:0;">
-                                <?= $data->deskripsi ?>
+                <?php 
+                $isFirst = TRUE;
+                $itung = 0;
+                foreach($dataRating as $data) { 
+                  if($isFirst && $itung == 0) { ?>
+                  <div class="carousel-item active">
+                    <div class="row">
+                  <?php 
+                $isFirst = FALSE;
+                } else if(!$isFirst && $itung == 0) { ?>
+                  <div class="carousel-item">
+                    <div class="row">
+                <?php  } 
+                $itung += 1; ?>              
+                 <div class="col-md-3">
+                            <div class="card">
+                              <a href="<?= base_url("landing/detailGame/".$data->id_game) ?>">
+                                <img class="card-img-top" src="<?= base_url().$data->foto; ?>" style="width: 100%; height: 200px;">
+                              </a>
+                              <div class="card-body">
+                                <p class="font-weight-normal text-break" style="margin-bottom:0; height: 3rem;"><?= $data->judul ?></p>
+                                <p class="font-weight-light text-muted text-break" style="font-size:0.8rem; margin:0;"><?= $data->developer ?></p>
+                                <div class="font-weight-light text-muted text-break deskripsi" style="font-size:0.8rem; margin:0;">
+                                  <?= $data->deskripsi ?>
+                                </div>
+                                <?php 
+                                  if($data->rating == 5) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 4.5) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star-half-alt" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 4) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 3.5) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star-half-alt" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 3) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 2.5) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star-half-alt" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                  <?php } else if ($data->rating == 2) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 1.5) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star-half-alt" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                  <?php } else if ($data->rating == 1) { ?>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 0.5) { ?>
+                                <i class="fas fa-star-half-alt" style="color: orange;"></i>
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } else if ($data->rating == 0) { ?>
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i> 
+                                <i class="far fa-star" style="color: orange;"></i>
+                                  <?php } ?>
                               </div>
-                              <?php 
-                                if($data->rating == 5) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 4.5) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star-half-alt" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 4) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 3.5) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star-half-alt" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 3) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 2.5) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star-half-alt" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                                <?php } else if ($data->rating == 2) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 1.5) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="fas fa-star-half-alt" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                                <?php } else if ($data->rating == 1) { ?>
-                              <i class="fas fa-star" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 0.5) { ?>
-                              <i class="fas fa-star-half-alt" style="color: orange;"></i>
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } else if ($data->rating == 0) { ?>
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i> 
-                              <i class="far fa-star" style="color: orange;"></i>
-                                <?php } ?>
                             </div>
-                          </div>
                         </div>
-                  <?php if($no == 3) { ?>
-                      </div>
+                 <?php if($itung == 4) {
+                   $itung = 0; ?>
                     </div>
-                    <?php $no = 0;
-                  }
-                  $no++;
-                  ?>
-                <?php }
-                if($no > 0)  { ?>
-                      </div>
-                    </div>
+                   </div>
+                 <?php } ?>
                 <?php } ?>
-                
+                </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -287,7 +285,7 @@
             <div class="card-img-top" style="background: url('<?= base_url($turnamen->foto_sampul); ?>') center / cover;"></div>
             <div class="card-body">
               <a href="<?= base_url("landing/detailTurnamen/$turnamen->id_turnamen") ?>" style="color: black; text-decoration: none;">
-                <h4 class="card-title"><?= $turnamen->judul ?></h4>
+                <h4 class="card-title" style="height: 7rem;"><?= $turnamen->judul ?></h4>
               </a>
               <p class="card-text font-weight-light">Oleh: <?= $turnamen->penyelenggara ?></p>
               <?php if($turnamen->platform == "PC") { ?>
